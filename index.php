@@ -395,8 +395,8 @@
                <a target="_blank" href="<?php echo $googleplus ?>" class="social-link no-color"><img src="googleplus.png" style="width:30px; height:25px;"></a>
                <a target="_blank" href="<?php echo $youtube ?>" class="social-link no-color"><img src="youtube.png" style="width:30px; height:25px;"></a>
                <a target="_blank" href="<?php echo $linkedin ?>" class="social-link no-color"><img src="linkedin.png" style="width:30px; height:25px;"></a>
-               <a target="_blank" href="" class="social-link no-color"><img src="watsapp.png" style="width:25px; height:25px;"></a>
-                <a class="va-m copyright" href="">+91 9632893526 Seshadhri Technologies</a> 
+               <a target="_blank" href="index.php#contact" target="_self" class="social-link no-color"><img src="watsapp.png" style="width:25px; height:25px;"></a>
+                <a class="va-m copyright" href=""> &#169; Copyright 2015 All Rights Reserved</a> 
                 </footer>
                <script type="text/javascript" src="wp-content/cache/minify/000000/nZDRDoIwDEV_SBj_4LMfUUcZw67FbsuUrxdC1AejEd5u2nOS9jYmSIvKpivGimI1gr2AQzNE40jOQGa4ZtR73ZUqJ0-HZothhZMKEeoJeIZ0g44QPbt_hBXwk247row7Plr"></script>
                <script type="text/javascript" src="wp-content/cache/minify/000000/BcEBDsAQEATAF-m9SVjNNXYJGtHXd2YVY8sYYrzj54LtHlypvhnTnmmpkdAKA72ei64f.js"></script> <!-- Jquery and Bootstap core js files --> 

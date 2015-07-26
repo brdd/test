@@ -6,6 +6,8 @@
             <file>file:/var/www/html/Email/index.php</file>
             <file>file:/var/www/html/Email/ServicesAndGallery.php</file>
             <file>file:/var/www/html/Email/ServiceConfig.php</file>
+            <file>file:/var/www/html/Email/securegallery.php</file>
+            <file>file:/var/www/html/Email/mail.php</file>
             <file>file:/var/www/html/Email/config.php</file>
             <file>file:/var/www/html/Email/admin.php</file>
         </group>

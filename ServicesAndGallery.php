@@ -100,6 +100,15 @@
                 background:#eee;
             }
         </style>
+        
+        <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+    
+        <script type="text/javascript">
+            tinymce.init({
+                selector: ".mytextarea"
+            });
+        </script>
+        
     </head>
     <body>
         <div id="header">
@@ -159,7 +168,7 @@
                     </tr>
                     <tr>
                         <td><label>Service Details</label></td>
-                        <td><input type="text" name="ServiceDetail"></td>
+                         <td><textarea rows="4" cols="50" name="ServiceDetail" class="mytextarea"></textarea></td>
                     </tr>
                 </table>
             </div>

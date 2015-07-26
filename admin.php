@@ -1,5 +1,4 @@
 <?php
-
     require 'config.php';
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -144,7 +143,7 @@
                 
             }
             input{
-                width:350px;
+                width:450px;
             }
             #header{
                 background-color: black;
@@ -168,6 +167,15 @@
                 background:#eee;
             }
         </style>
+        
+        <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+    
+        <script type="text/javascript">
+            tinymce.init({
+                selector: ".mytextarea"
+            });
+        </script>
+        
     </head>
     <body>
         <div id="header">
@@ -283,7 +291,7 @@
                     </tr>
                     <tr>
                         <td><label>AboutUs Content</label></td>
-                        <td><input type="text" name="AboutUsContent" value="<?php echo $AboutUsContent;?>" ></td>
+                        <td><textarea rows="4" cols="50" name="AboutUsContent" class="mytextarea"><?php echo $AboutUsContent;?></textarea></td>
                     </tr>
                     <tr>
                         <td><label>AboutUs Content Text Color</label></td>
@@ -319,15 +327,15 @@
                     </tr>
                     <tr>
                         <td><label>collapse 1 Content</label></td>
-                        <td><input type="text" name="collapse1Content" value="<?php echo $collapse1Content;?>" ></td>
+                        <td><textarea rows="4" cols="50" name="collapse1Content" class="mytextarea"><?php echo $collapse1Content;?></textarea></td>
                     </tr>
                     <tr>
                         <td><label>collapse 2 Content</label></td>
-                        <td><input type="text" name="collapse2Content" value="<?php echo $collapse2Content;?>" ></td>
+                        <td><textarea rows="4" cols="50" name="collapse3Content" class="mytextarea"><?php echo $collapse2Content;?></textarea></td>
                     </tr>
                     <tr>
                         <td><label>collapse 3 Content</label></td>
-                        <td><input type="text" name="collapse3Content" value="<?php echo $collapse3Content;?>" ></td>
+                        <td><textarea rows="4" cols="50" name="collapse3Content" class="mytextarea"><?php echo $collapse3Content;?></textarea></td>
                     </tr>
                 </table>
             </div>
@@ -371,7 +379,8 @@
                     </tr>
                     <tr>
                         <td><label>Out Team Content</label></td>
-                        <td><input type="text" name="OurTeamContent" value="<?php echo $OurTeamContent;?>" ></td>
+                        <td><textarea rows="4" cols="50" name="OurTeamContent" class="mytextarea"><?php echo $OurTeamContent;?></textarea></td>
+                    
                     </tr>
                     <tr>
                         <td><label>Out Team Content Text Color</label></td>
