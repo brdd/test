@@ -3,20 +3,35 @@
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $write = "<?php";
+        
         $write .= "\n";
-        $write .= '$sliderimage1 = "'. $_POST['sliderimage1'].'";';
+        $print1 = ($_FILES['imageslider1']['name'] != null)? uploadimage('imageslider1', $sliderimage1):$_POST['sliderimage1'];
+        $write .= '$sliderimage1 = "'. $print1.'";';
+        
         $write .= "\n";
-        $write .= '$sliderimage2 = "'. $_POST['sliderimage2'].'";';
+        $print2 = ($_FILES['imageslider2']['name'] != null)? uploadimage('imageslider2', $sliderimage2):$_POST['sliderimage2'];
+        $write .= '$sliderimage2 = "'. $print2 .'";';
+        
         $write .= "\n";
-        $write .= '$sliderimage3 = "'. $_POST['sliderimage3'].'";';
+        $print3 = ($_FILES['imageslider3']['name'] != null)? uploadimage('imageslider3', $sliderimage3):$_POST['sliderimage3'];
+        $write .= '$sliderimage3 = "'. $print3 .'";';
+        
         $write .= "\n";
-        $write .= '$sliderimage4 = "'. $_POST['sliderimage4'].'";';
+        $print4 = ($_FILES['imageslider4']['name'] != null)? uploadimage('imageslider4', $sliderimage4):$_POST['sliderimage4'];
+        $write .= '$sliderimage4 = "'. $print4 .'";';
+        
         $write .= "\n";
-        $write .= '$sliderimage5 = "'. $_POST['sliderimage5'].'";';
+        $print5 = ($_FILES['imageslider5']['name'] != null)? uploadimage('imageslider5', $sliderimage5):$_POST['sliderimage5'];
+        $write .= '$sliderimage5 = "'. $print5 .'";';
+        
         $write .= "\n";
-        $write .= '$bodyBackgroundUrl = "'. $_POST['bodyBackgroundUrl'].'";';
+        $print6 = ($_FILES['imagebackground']['name'] != null)? uploadimage('imagebackground', $bodyBackgroundUrl):$_POST['bodyBackgroundUrl'];
+        $write .= '$bodyBackgroundUrl = "'. $print6 .'";';
+        
         $write .= "\n";
-        $write .= '$logoSrc = "'. $_POST['logoSrc'].'";';
+        $print7 = ($_FILES['imagelogo']['name'] != null)? uploadimage('imagelogo', $logoSrc):$_POST['logoSrc'];
+        $write .= '$logoSrc = "'. $print7 .'";';
+        
         $write .= "\n";
         $write .= '$logoWidth = "'. $_POST['logoWidth'].'";';  
         $write .= "\n";
@@ -49,12 +64,18 @@
         $write .= '$AboutUsContent = "'. $_POST['AboutUsContent'].'";';
         $write .= "\n";
         $write .= '$AboutUsContentTextColor = "'. $_POST['AboutUsContentTextColor'].'";';
+        
         $write .= "\n";
-        $write .= '$AboutUsBackgroundImageHeader = "'. $_POST['AboutUsBackgroundImageHeader'].'";';
+        $print8 = ($_FILES['aboutsimageheader']['name'] != null)? uploadimage('aboutsimageheader', $AboutUsBackgroundImageHeader):$_POST['AboutUsBackgroundImageHeader'];
+        $write .= '$AboutUsBackgroundImageHeader = "'. $print8 .'";';
+        
         $write .= "\n";
         $write .= '$AboutUsBackgroundColorHeader = "'. $_POST['AboutUsBackgroundColorHeader'].'";';
+        
         $write .= "\n";
-        $write .= '$AboutUsBackgroundImageContent = "'. $_POST['AboutUsBackgroundImageContent'].'";'; 
+        $print9 = ($_FILES['aboutsimagecontent']['name'] != null)? uploadimage('aboutsimagecontent', $AboutUsBackgroundImageContent):$_POST['AboutUsBackgroundImageContent'];
+        $write .= '$AboutUsBackgroundImageContent = "'.$print9.'";'; 
+        
         $write .= "\n";
         $write .= '$AboutUsBackgroundColorContent = "'. $_POST['AboutUsBackgroundColorContent'].'";';
         $write .= "\n";
@@ -69,8 +90,11 @@
         $write .= '$collapse2Content  = "'. $_POST['collapse2Content'].'";';
         $write .= "\n";
         $write .= '$collapse3Content  = "'. $_POST['collapse3Content'].'";'; 
+        
         $write .= "\n";
-        $write .= '$serviceItemHoverImage  = "'. $_POST['serviceItemHoverImage'].'";';
+        $print10 = ($_FILES['serviceimagehover']['name'] != null)? uploadimage('serviceimagehover', $serviceItemHoverImage):$_POST['serviceItemHoverImage'];
+        $write .= '$serviceItemHoverImage  = "'. $print10 .'";';
+        
         $write .= "\n";
         $write .= '$serviceItemHoverFont  = "'. $_POST['serviceItemHoverFont'].'";';
         $write .= "\n";
@@ -85,12 +109,18 @@
         $write .= '$OurTeamContent  = "'. $_POST['OurTeamContent'].'";';
         $write .= "\n";
         $write .= '$OurTeamContentTextColor  = "'. $_POST['OurTeamContentTextColor'].'";';
+        
         $write .= "\n";
-        $write .= '$OurTeamBackgroundImageHeader  = "'. $_POST['OurTeamBackgroundImageHeader'].'";';
+        $print11 = ($_FILES['ourteamimageheader']['name'] != null)? uploadimage('ourteamimageheader', $OurTeamBackgroundImageHeader):$_POST['OurTeamBackgroundImageHeader'];
+        $write .= '$OurTeamBackgroundImageHeader  = "'.$print11.'";';
+        
         $write .= "\n";
         $write .= '$OurTeamBackgroundColorHeader = "'. $_POST['OurTeamBackgroundColorHeader'].'";';
+        
         $write .= "\n";
-        $write .= '$OurTeamBackgroundImageContent  = "'. $_POST['OurTeamBackgroundImageContent'].'";';
+        $print12 = ($_FILES['ourteamimagecontent']['name'] != null)? uploadimage('ourteamimagecontent', $OurTeamBackgroundImageContent):$_POST['OurTeamBackgroundImageContent'];
+        $write .= '$OurTeamBackgroundImageContent  = "'.$print12.'";';
+        
         $write .= "\n";
         $write .= '$OurTeamBackgroundColorContent  = "'. $_POST['OurTeamBackgroundColorContent'].'";';
         $write .= "\n";
@@ -116,18 +146,47 @@
         $write .= "\n";
         $write .= '$linkedin   = "'. $_POST['linkedin'].'";';
         
-        
-               
-                 
-                 
-                 
-                
-        
-        
-        
         $file = fopen("config.php", "w+");
         fwrite($file, $write);
     }
+    
+    
+    
+    function uploadimage($img, $value){
+            
+        if(isset($_FILES[$img])){
+            var_dump($FILES[$img]);
+                $errors= array();
+                $file_name = $_FILES[$img]['name'];
+                $file_size =$_FILES[$img]['size'];
+                $file_tmp =$_FILES[$img]['tmp_name'];
+                $file_type =$_FILES[$img]['type'];   
+                $file_ext=strtolower(end(explode('.',$_FILES[$img]['name'])));
+
+                $expensions= array("jpeg","jpg","png", "gif"); 		
+                if(in_array($file_ext,$expensions)=== false){
+                        $errors = ["please choose a .JPEG, .GIF or .PNG file."];
+                }
+
+                if($file_size > 2097152){
+                $errors = ['File size must be excately 2 MB'];
+                }
+
+                if(empty($errors)==true){
+                        move_uploaded_file($file_tmp,"images/".$file_name);
+                        $value = "images/".$file_name;
+                        echo "Success";
+                        return $value;
+                }else{
+                    foreach ($errors as $value) {
+                        echo $value;
+                    }
+                }
+            }
+
+        }
+    
+    
 
 ?>
 
@@ -142,23 +201,31 @@
                 font-family: "Times New Roman", Times, serif;
                 
             }
-            input{
-                width:450px;
+            input[type="text"]{
+               width:450px;
+            }
+            
+            label{
+                display:inline-block;
+                width:250px;
             }
             #header{
                 background-color: black;
                 width:100%;
+                min-width: 1020px;
                 color: white;
                 font-size: 25px;
                 padding:15px;
             }
             #headerContent{
                 width:100%;
+                min-width: 1020px;
                 margin-left: auto;
                 margin-right:auto;
             }
             #jumbotron{
                 width:90%;
+                min-width: 1020px;
                 padding:15px;
                 margin-top:20px;
                 margin-left: auto;
@@ -184,7 +251,7 @@
             </div>
             
         </div>
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div id="jumbotron">
                 <table>
                     <th>Home</th>
@@ -192,26 +259,32 @@
                     <tr>
                         <td><label>Slider image 1</label></td>
                         <td><input type="text" name="sliderimage1" value="<?php echo $sliderimage1;?>" ></td>
+                        <td><input type="file" name="imageslider1" /></td>
                     </tr>
                     <tr>
                         <td><label>Slider image 2</label></td>
                         <td><input type="text" name="sliderimage2" value="<?php echo $sliderimage2;?>" ></td>
+                        <td><input type="file" name="imageslider2" /></td>
                     </tr>
                     <tr>
                         <td><label>Slider image 3</label></td>
                         <td><input type="text" name="sliderimage3" value="<?php echo $sliderimage3;?>" ></td>
+                        <td><input type="file" name="imageslider3" /></td>
                     </tr>
                     <tr>
                         <td><label>Slider image 4</label></td>
                         <td><input type="text" name="sliderimage4" value="<?php echo $sliderimage4;?>" ></td>
+                        <td><input type="file" name="imageslider4" /></td>
                     </tr>
                     <tr>
                         <td><label>Slider image 5</label></td>
                         <td><input type="text" name="sliderimage5" value="<?php echo $sliderimage5;?>" ></td>
+                        <td><input type="file" name="imageslider5" /></td>
                     </tr>
                     <tr>
                         <td><label>Logo url</label></td>
                         <td><input type="text" name="logoSrc" value="<?php echo $logoSrc;?>" ></td>
+                        <td><input type="file" name="imagelogo" /></td>
                     </tr>
                     <tr>
                         <td><label>Logo Width</label></td>
@@ -226,15 +299,15 @@
                         <td><input type="text" name="title" value="<?php echo $title;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>title Text Color</label></td>
+                        <td><label>Title Text Color</label></td>
                         <td><input type="text" name="titleTextColor"  value="<?php echo $titleTextColor;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>subtitle</label></td>
+                        <td><label>Subtitle</label></td>
                         <td><input type="text" name="subtitle" value="<?php echo $subtitle;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>subtitle Text Color</label></td>
+                        <td><label>Subtitle Text Color</label></td>
                         <td><input type="text" name="subtitleTextColor" value="<?php echo $subtitleTextColor;?>" ></td>
                     </tr>
                     
@@ -247,23 +320,24 @@
                 <table>
                     <th>Layout</th>
                      <tr>
-                        <td><label>Body Background Url</label></td>
+                        <td><label>Website Background Image</label></td>
                         <td><input type="text" name="bodyBackgroundUrl" value="<?php echo $bodyBackgroundUrl;?>" ></td>
+                        <td><input type="file" name="imagebackground" /></td>
                     </tr>
                     <tr>
-                        <td><label>menuItem Text Color</label></td>
+                        <td><label>Menu Text Color</label></td>
                         <td><input type="text" name="menuItemTextColor" value="<?php echo $menuItemTextColor;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>menuItemT ext Color Hover</label></td>
+                        <td><label>Menu Text Color On Hover</label></td>
                         <td><input type="text" name="menuItemTextColorHover" value="<?php echo $menuItemTextColorHover;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>menuItem Background Color</label></td>
+                        <td><label>Menu Background Color</label></td>
                         <td><input type="text" name="menuItemBackgroundColor" value="<?php echo $menuItemBackgroundColor;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>menuItem Background Color Hover</label></td>
+                        <td><label>Menu Background Color On Hover</label></td>
                         <td><input type="text" name="menuItemBackgroundColorHover" value="<?php echo $menuItemBackgroundColorHover;?>" ></td>
                     </tr>
                 </table>
@@ -274,68 +348,70 @@
                 <table>
                     <th>About Us</th>
                     <tr>
-                        <td><label>AboutUs Title</label></td>
+                        <td><label>About Us Title</label></td>
                         <td><input type="text" name="AboutUsTitle" value="<?php echo $AboutUsTitle;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>AboutUs Title Text Color</label></td>
+                        <td><label>About Us Title Text Color</label></td>
                         <td><input type="text" name="AboutUsTitleTextColor" value="<?php echo $AboutUsTitleTextColor;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>AboutUs Heading</label></td>
+                        <td><label>About Us Heading</label></td>
                         <td><input type="text" name="AboutUsHeading" value="<?php echo $AboutUsHeading;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>AboutUs Heading Text Color</label></td>
+                        <td><label>About Us Heading Text Color</label></td>
                         <td><input type="text" name="AboutUsHeadingTextColor" value="<?php echo $AboutUsHeadingTextColor;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>AboutUs Content</label></td>
-                        <td><textarea rows="4" cols="50" name="AboutUsContent" class="mytextarea"><?php echo $AboutUsContent;?></textarea></td>
+                        <td><label>About Us Content</label></td>
+                        <td colspan="2"><textarea rows="4" cols="50" name="AboutUsContent" class="mytextarea"><?php echo $AboutUsContent;?></textarea></td>
                     </tr>
                     <tr>
-                        <td><label>AboutUs Content Text Color</label></td>
+                        <td><label>About Us Content Text Color</label></td>
                         <td><input type="text" name="AboutUsContentTextColor" value="<?php echo $AboutUsContentTextColor?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>AboutUs Background Image Header </label></td>
+                        <td><label>Background image For Header </label></td>
                         <td><input type="text" name="AboutUsBackgroundImageHeader" value="<?php echo $AboutUsBackgroundImageHeader;?>" ></td>
+                        <td><input type="file" name="aboutsimageheader" /></td>
                     </tr>
                     <tr>
-                        <td><label>AboutUs Background Color Header</label></td>
+                        <td><label>Background Color For Header</label></td>
                         <td><input type="text" name="AboutUsBackgroundColorHeader" value="<?php echo $AboutUsBackgroundColorHeader;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>AboutUs Background Image Content</label></td>
+                        <td><label>Background Image For Content</label></td>
                         <td><input type="text" name="AboutUsBackgroundImageContent" value="<?php echo $AboutUsBackgroundImageContent;?>" ></td>
+                        <td><input type="file" name="aboutsimagecontent" /></td>
                     </tr>
                     <tr>
-                        <td><label>AboutUs Background Color Content</label></td>
+                        <td><label>Background Color For Content</label></td>
                         <td><input type="text" name="AboutUsBackgroundColorContent" value="<?php echo $AboutUsBackgroundColorContent;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>collapse 1 Heading</label></td>
+                        <td><label>Collapse 1 Heading</label></td>
                         <td><input type="text" name="collapse1Heading" value="<?php echo $collapse1Heading;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>collapse 2 Heading</label></td>
+                        <td><label>Collapse 2 Heading</label></td>
                         <td><input type="text" name="collapse2Heading" value="<?php echo $collapse2Heading;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>collapse 3 Heading</label></td>
+                        <td><label>Collapse 3 Heading</label></td>
                         <td><input type="text" name="collapse3Heading"  value="<?php echo $collapse3Heading;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>collapse 1 Content</label></td>
-                        <td><textarea rows="4" cols="50" name="collapse1Content" class="mytextarea"><?php echo $collapse1Content;?></textarea></td>
+                        <td><label>Collapse 1 Content</label></td>
+                        <td colspan="2" ><textarea rows="4" cols="50" name="collapse1Content" class="mytextarea"><?php echo $collapse1Content;?></textarea></td>
                     </tr>
                     <tr>
-                        <td><label>collapse 2 Content</label></td>
-                        <td><textarea rows="4" cols="50" name="collapse3Content" class="mytextarea"><?php echo $collapse2Content;?></textarea></td>
+                        <td><label>Collapse 2 Content</label></td>
+                        <td colspan="2" ><textarea rows="4" cols="50" name="collapse3Content" class="mytextarea"><?php echo $collapse2Content;?></textarea></td>
                     </tr>
                     <tr>
-                        <td><label>collapse 3 Content</label></td>
-                        <td><textarea rows="4" cols="50" name="collapse3Content" class="mytextarea"><?php echo $collapse3Content;?></textarea></td>
+                        <td><label>Collapse 3 Content</label></td>
+                        <td colspan="2" ><textarea rows="4" cols="50" name="collapse3Content" class="mytextarea"><?php echo $collapse3Content;?></textarea></td>
                     </tr>
                 </table>
             </div>
@@ -345,11 +421,12 @@
                 <table>
                     <th>Services</th>
                     <tr>
-                        <td><label>serviceItem Hover Image</label></td>
+                        <td><label> Hover Image For Service</label></td>
                         <td><input type="text" name="serviceItemHoverImage" value="<?php echo $serviceItemHoverImage;?>" ></td>
+                        <td><input type="file" name="serviceimagehover"/></td>
                     </tr>
                     <tr>
-                        <td><label>serviceItem Hover Font</label></td>
+                        <td><label>Hover Text For Service</label></td>
                         <td><input type="text" name="serviceItemHoverFont" value="<?php echo $serviceItemHoverFont;?>" ></td>
                     </tr>
                 </table>
@@ -366,7 +443,7 @@
                         <td><input type="text" name="OurTeamTitle" value="<?php echo $OurTeamTitle;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>Out Team Title Text Color</label></td>
+                        <td><label>Title Text Color</label></td>
                         <td><input type="text" name="OurTeamTitleTextColor" value="<?php echo $OurTeamTitleTextColor;?>" ></td>
                     </tr>
                     <tr>
@@ -374,45 +451,47 @@
                         <td><input type="text" name="OurTeamHeading" value="<?php echo $OurTeamHeading;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>Out Team Heading Text Color</label></td>
+                        <td><label>Heading Text Color</label></td>
                         <td><input type="text" name="OurTeamHeadingTextColor" value="<?php echo $OurTeamHeadingTextColor;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>Out Team Content</label></td>
-                        <td><textarea rows="4" cols="50" name="OurTeamContent" class="mytextarea"><?php echo $OurTeamContent;?></textarea></td>
+                        <td><label>Content</label></td>
+                        <td colspan="2" ><textarea rows="4" cols="50" name="OurTeamContent" class="mytextarea"><?php echo $OurTeamContent;?></textarea></td>
                     
                     </tr>
                     <tr>
-                        <td><label>Out Team Content Text Color</label></td>
+                        <td><label>Content Text Color</label></td>
                         <td><input type="text" name="OurTeamContentTextColor" value="<?php echo $OurTeamContentTextColor;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>Out Team Background Image Header </label></td>
+                        <td><label>Background Image For Header </label></td>
                         <td><input type="text" name="OurTeamBackgroundImageHeader" value="<?php echo $OurTeamBackgroundImageHeader;?>" ></td>
+                        <td><input type="file" name="ourteamimageheader"/></td>
                     </tr>
                     <tr>
-                        <td><label>Out Team Background Color Header</label></td>
+                        <td><label> Background Color For Header</label></td>
                         <td><input type="text" name="OurTeamBackgroundColorHeader" value="<?php echo $OurTeamBackgroundColorHeader;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>Out Team Background Image Content</label></td>
+                        <td><label>Background Image For Content</label></td>
                         <td><input type="text" name="OurTeamBackgroundImageContent" value="<?php echo $OurTeamBackgroundImageContent;?>" ></td>
+                        <td><input type="file" name="ourteamimagecontent"/></td>
                     </tr>
                     <tr>
-                        <td><label>Out Team Background Color Content</label></td>
+                        <td><label>Background Color For Content</label></td>
                         <td><input type="text" name="OurTeamBackgroundColorContent" value="<?php echo $OurTeamBackgroundColorContent;?>" ></td>
                     </tr>
                                      
                     <tr>
-                        <td><label>modal Button Name</label></td>
+                        <td><label>Popup Button Name</label></td>
                         <td><input type="text" name="modalButtonName" value="<?php echo $modalButtonName;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>modal Button Header</label></td>
+                        <td><label>Popup Heading</label></td>
                         <td><input type="text" name="modalButtonHeader" value="<?php echo $modalButtonHeader;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>modal Button Content</label></td>
+                        <td><label>Popup Content</label></td>
                         <td><input type="text" name="modalButtonContent" value="<?php echo $modalButtonContent;?>" ></td>
                     </tr>
                 </table>
@@ -424,7 +503,7 @@
                 <table>
                     <th>Contact Us</th>
                      <tr>
-                        <td><label>Sender</label></td>
+                        <td><label>Sender Email Id</label></td>
                         <td><input type="text" name="sender" value="<?php echo $sender;?>" ></td>
                     </tr>
                     <tr>
@@ -432,7 +511,7 @@
                         <td><input type="password" name="senderPass" value="<?php echo $senderPass;?>" ></td>
                     </tr>
                     <tr>
-                        <td><label>Receiver</label></td>
+                        <td><label>Receiver Email Id</label></td>
                         <td><input type="text" name="receiver" value="<?php echo $receiver;?>" ></td>
                     </tr>
                     <tr>

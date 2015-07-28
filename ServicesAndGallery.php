@@ -1,6 +1,113 @@
 <?php
     require 'ServiceConfig.php';
     
+    
+    function uploadimage($img, $value){
+        echo "here!";
+        if(isset($_FILES[$img])){
+            $errors= array();
+            $file_name = $_FILES[$img]['name'];
+            $file_size =$_FILES[$img]['size'];
+            $file_tmp =$_FILES[$img]['tmp_name'];
+            $file_type =$_FILES[$img]['type'];   
+            $file_ext=strtolower(end(explode('.',$_FILES[$img]['name'])));
+
+            $expensions= array("jpeg","jpg","png", "gif"); 		
+            if(in_array($file_ext,$expensions)=== false){
+                    $errors = ["please choose a .JPEG, .GIF or .PNG file."];
+            }
+
+            if($file_size > 2097152){
+            $errors = ['File size must be excately 2 MB'];
+            }
+
+            if(empty($errors)==true){
+                    move_uploaded_file($file_tmp,"images/".$file_name);
+                    $value = "images/".$file_name;
+                    echo "Success";
+                    return $value;
+            }else{
+                foreach ($errors as $value) {
+                    echo $value;
+                }
+            }
+        }
+
+    }
+    
+    
+    
+    
+    
+     function uploadMultipleImage($allImageDetails){
+        for($i = 0; $i < count($allImageDetails['name']);$i++){
+            $errors= array();
+            $file_name = $allImageDetails['name'][$i];
+            $file_size = $allImageDetails['size'][$i];
+            $file_tmp = $allImageDetails['tmp_name'][$i];
+            $file_type = $allImageDetails['type'][$i];
+
+            $file_ext=strtolower(end(explode('.',$allImageDetails['name'][$i])));
+            $expensions= array("jpeg","jpg","png", "gif"); 		
+            if(in_array($file_ext,$expensions)=== false){
+                    $errors = ["please choose a .JPEG, .GIF or .PNG file."];
+            }
+
+            if($file_size > 2097152){
+            $errors = ['File size must be excately 2 MB'];
+            }
+            if(empty($errors)==true){
+                    move_uploaded_file($file_tmp,"images/".$file_name);
+                    $value = "images/".$file_name;
+                    echo "Success";
+                    return $value;
+            }else{
+                foreach ($errors as $value) {
+                    echo $value;
+                }
+            }
+        }
+         
+         
+        if(isset($_FILES[$img])){
+            $errors= array();
+            $file_name = $_FILES[$img]['name'];
+            $file_size =$_FILES[$img]['size'];
+            $file_tmp =$_FILES[$img]['tmp_name'];
+            $file_type =$_FILES[$img]['type'];   
+            $file_ext=strtolower(end(explode('.',$_FILES[$img]['name'])));
+
+            $expensions= array("jpeg","jpg","png", "gif"); 		
+            if(in_array($file_ext,$expensions)=== false){
+                    $errors = ["please choose a .JPEG, .GIF or .PNG file."];
+            }
+
+            if($file_size > 2097152){
+            $errors = ['File size must be excately 2 MB'];
+            }
+
+            if(empty($errors)==true){
+                    move_uploaded_file($file_tmp,"images/".$file_name);
+                    $value = "images/".$file_name;
+                    echo "Success";
+                    return $value;
+            }else{
+                foreach ($errors as $value) {
+                    echo $value;
+                }
+            }
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     if(isset($_GET['del'])){
         
         $write .= "<?php \n";
@@ -31,13 +138,19 @@
         $write .= "<?php \n";
         end($serviceItem);
         $id = (empty($serviceItem))? 0: key($serviceItem)+1;
-        array_push($serviceItem, ['image'=> $_POST['tumbnail'],'url'=>"services/index.php?id=$id", 'name'=>$_POST['name']]);
+        $print01 = ($_FILES['imagethumbnail']['name'] != null)? uploadimage('imagethumbnail', $sliderimage1):$_POST['tumbnail'];
+        array_push($serviceItem, ['image'=> $print01,'url'=>"services/index.php?id=$id", 'name'=>$_POST['name']]);
         $serviceItem = var_export($serviceItem, true);
         $write .= '$serviceItem   = '.$serviceItem.';';
         
         
         $write .= "\n";
-        $serviceGallerItems[$id] = $_POST['image'];
+        uploadMultipleImage($_FILES['galleryImage']);
+        //array_filter only on FILES as it needs to have the precedence
+        $print02 = array_filter($_FILES['galleryImage']['name']) + $_POST['image'];
+        ksort($print02);
+        
+        $serviceGallerItems[$id] = $print02;
         $serviceGallerItems = var_export($serviceGallerItems, true);
         $write .= '$serviceGallerItems   = '.$serviceGallerItems.';';
         
@@ -75,23 +188,31 @@
                 font-family: "Times New Roman", Times, serif;
                 
             }
-            input{
-                width:350px;
+            input[type="text"]{
+               width:450px;
+            }
+            
+            label{
+                display:inline-block;
+                width:250px;
             }
             #header{
                 background-color: black;
                 width:100%;
+                min-width: 1020px;
                 color: white;
                 font-size: 25px;
                 padding:15px;
             }
             #headerContent{
                 width:100%;
+                min-width: 1020px;
                 margin-left: auto;
                 margin-right:auto;
             }
             #jumbotron{
                 width:90%;
+                min-width: 1020px;
                 padding:15px;
                 margin-top:20px;
                 margin-left: auto;
@@ -132,12 +253,13 @@
             </form>
         </div>
         
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div id="jumbotron">
                 <table>
                     <tr>
                         <td><label>Thumbnail Image Url</label></td>
                         <td><input type="text" name="tumbnail"></td>
+                        <td><input type="file" name="imagethumbnail" /></td>
                     </tr>
                     <tr>
                         <td><label>Display Name</label></td>
@@ -155,6 +277,7 @@
                     <tr>
                         <td><label>Image <?php echo ($i+1) ?></label></td>
                         <td><input type="text" name="image[]"></td>
+                        <td><input type="file" name="galleryImage[]" /></td>
                     </tr>
                     <?php }?>
                 </table>
@@ -168,7 +291,7 @@
                     </tr>
                     <tr>
                         <td><label>Service Details</label></td>
-                         <td><textarea rows="4" cols="50" name="ServiceDetail" class="mytextarea"></textarea></td>
+                         <td style="width:800px;"><textarea rows="4" cols="50" name="ServiceDetail" class="mytextarea"></textarea></td>
                     </tr>
                 </table>
             </div>
