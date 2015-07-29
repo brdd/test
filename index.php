@@ -48,6 +48,131 @@
                <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
                <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
                <link href="css/style.css" rel="stylesheet">
+               <meta name="viewport" content="width=device-width, initial-scale=1">
+               
+               <!--menu item hover-->
+               <style>
+                   
+                   /*Strip the ul of padding and list styling*/
+                    ul {
+                            list-style-type:none;
+                            margin:0;
+                            padding:0;
+                            position: absolute;
+                    }
+
+                    /*Create a horizontal list with spacing*/
+                    li {
+                            display:inline-block;
+                            float: left;
+                            margin-right: 1px;
+                            background-color:<?php echo $menuItemBackgroundColor?>; 
+                            margin-right: 10px;
+                    }
+
+                    /*Style for menu links*/
+                    li a {
+                            display:block;
+                            min-width:120px;
+                            height: 50px;
+                            text-align: center;
+                            line-height: 30px;
+                            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                            color: #fff;
+                            background: #2f3036;
+                            text-decoration: none;
+                    }
+
+                    /*Hover state for top level links*/
+                    li:hover a {
+                            background: yellow;
+                    }
+
+                    /*Style for dropdown links*/
+                    li:hover ul a {
+                            background: #f3f3f3;
+                            color: #2f3036;
+                            height: 40px;
+                            line-height: 40px;
+                    }
+
+                    /*Hover state for dropdown links*/
+                    li:hover ul a:hover {
+                            background: #19c589;
+                            color: #fff;
+                    }
+
+                    /*Hide dropdown links until they are needed*/
+                    li ul {
+                            display: none;
+                    }
+
+                    /*Make dropdown links vertical*/
+                    li ul li {
+                            display: block;
+                            float: none;
+                    }
+
+                    /*Prevent text wrapping*/
+                    li ul li a {
+                            width: auto;
+                            min-width: 100px;
+                            padding: 0 20px;
+                    }
+
+                    /*Display the dropdown on hover*/
+                    ul li a:hover + .hidden, .hidden:hover {
+                            display: block;
+                    }
+
+                    /*Style 'show menu' label button and hide it by default*/
+                    .show-menu {
+                            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                            text-decoration: none;
+                            color: #fff;
+                            background: #19c589;
+                            text-align: center;
+                            padding: 10px 0;
+                            display: none;
+                    }
+
+                    /*Hide checkbox*/
+                    input[type=checkbox]{
+                        display: none;
+                        -webkit-appearance: none;
+                    }
+
+                    /*Show menu when invisible checkbox is checked*/
+                    input[type=checkbox]:checked ~ #menu{
+                        display: block;
+                    }
+
+
+                    /*Responsive Styles*/
+
+                    @media screen and (max-width : 760px){
+                            /*Make dropdown links appear inline*/
+                            ul {
+                                    position: static;
+                                    display: none;
+                            }
+                            /*Create vertical spacing*/
+                            li {
+                                    margin-bottom: 1px;
+                            }
+                            /*Make all menu links full width*/
+                            ul li, li a {
+                                    width: 100%;
+                            }
+                            /*Display 'show menu' link*/
+                            .show-menu {
+                                    display:block;
+                            }
+                    }
+                   
+               </style>
+               
+               
                
                
                <style>  
@@ -95,17 +220,19 @@
                 
                 
                 
-                <nav class="modern-navigation force-hover secondary-bg" style="background-color:transparent">
-                  <div class="nav-label" style="padding-left:-15px;"> <a href="" class="no-color" style="font-size:220%; padding:2px; "> </a></div>
+                <nav class="modern-navigation force-hover secondary-bg" style=" background-color:transparent;">
                   <div class="page-brand h2" style="margin-top:-22px; margin-left:-100px; color:transparent"> <a class="no-color" href=""> <span style="#cc7900" id='orange'> Seshadhri </span><span style="#007600" id="green"> Technologies </span> </a></div>
                   
-                  <ul class="cascade-quick" data-horizontal-scroll="force" style="margin-left:40%; margin-top:-46px; right:0px; position: absolute; overflow: auto; display: inline-block;">
-                     <li id="menuItem"> <a href="#home"> <i data-inline data-icon="home"></i> Home Page </a></li>
-                     <li id="menuItem"> <a href="#abouts"> <i data-inline data-icon="newspaper"></i> About Us </a></li>
-                     <li id="menuItem"> <a href="#services"> <i data-inline data-icon="camera"></i> Services </a></li>
-                     <li id="menuItem"> <a href="#team"> <i data-inline data-icon="user"></i> Our Team </a></li>
-                     <li id="menuItem"> <a href="#contact"> <i data-inline data-icon="phone"></i> Contact us </a></li>
-                  </ul>
+                  <label for="show-menu" class="show-menu" style="padding:10px; font-size: 30px; " > <span style="color:#cc7900"> Seshadhri </span><span style="color:#007600"> Technologies </span><span style="float:right;"><image src="images/menuIcon0101.png" height="40px"></span></label>
+                    <input type="checkbox" id="show-menu" role="button">
+                    <ul id="menu" style="float:right;">
+                        <li ><a href="#home">Home Page</a></li>
+                        <li ><a href="#abouts">About Us</a></li>
+                        <li ><a href="#abouts">Services</a></li>
+                        <li ><a href="#team">Our Team</a></li>
+                        <li ><a href="#contact">Contact Us</a></li>
+                    </ul>
+                  
                </nav>
                 
                 
@@ -119,13 +246,7 @@
                    <div id="myCarousel"  class="carousel slide post-hero" style="width:100%;" data-ride="carousel">
                        <div id="home"></div>
                     <!-- Carousel indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                        <li data-target="#myCarousel" data-slide-to="3"></li>
-                        <li data-target="#myCarousel" data-slide-to="4"></li>
-                    </ol>   
+                      
                     
                     <!-- Wrapper for carousel items -->
                     <div class="carousel-inner post-hero" style="width:100%; ">
@@ -197,10 +318,10 @@
                            <div class="col-md-12" >
                               <h2 style="color:<?php echo $AboutUsHeadingTextColor ?>"><?php echo $AboutUsHeading?></h2>
                               <div class="row">
-                                 <div class="col-md-6" style="color:<?php echo $AboutUsContentTextColor?>">
-                                     <p>
-                                     <?php echo $AboutUsContent?>
-                                     </p>
+                                 <div class="col-md-6" style="display:inline-block; color:<?php echo $AboutUsContentTextColor?>">
+                                     
+                                     ContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentCon tentContentContentContentContentContentContentContentContentContentContentCo ntentContentContentContentContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentContentCo ntentContentContentContentContentContentContentContentContentContentContentCon entContentContentContentContentContentContentContentContentContentContentConte ntContentContentContentContentContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentContentCont entContentContentContentContentContentContentContent
+                                     
                                  </div>
                                  <div class="col-md-6" style="color:black">
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">

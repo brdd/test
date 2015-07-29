@@ -168,11 +168,6 @@
         $serviceGallerItemsDetails = var_export($serviceGallerItemsDetails, true);
         $write .= '$serviceGallerItemsDetails   = '.$serviceGallerItemsDetails.';';
         
-        $write .= "\n";
-        $write .= '$GalleryModalContent   = \''. $_POST['GalleryModalContent'].'\';';
-        
-        $write .= "\n";
-        $write .= '$GalleryModalButton   = "'. $_POST['GalleryModalButton'].'";';
         
         $file = fopen("ServiceConfig.php", "w+");
         fwrite($file, $write);
@@ -284,7 +279,7 @@
                     </tr>
                     <tr>
                         <td><label>Popup Content</label></td>
-                        <td colspan="2"><textarea rows="4" cols="50" name="GalleryModalContent" class="mytextarea"><?php echo $GalleryModalContent;?></textarea></td>
+                        <td colspan="2"><textarea rows="4" cols="50" name="GalleryModalContent" class="mytextarea"></textarea></td>
                   
                     </tr>
                 </table>
