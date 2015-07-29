@@ -50,7 +50,6 @@
                <link href="css/style.css" rel="stylesheet">
                
                
-               
                <style>  
                         #services:hover{ 
                             overflow-y:auto; 
@@ -74,6 +73,7 @@
                             Color:<?php echo $serviceItemHoverFont?>;
                             background:url(<?php echo $serviceItemHoverImage?>); 
                         } 
+                      
                </style>
                
                
@@ -335,8 +335,11 @@
                    
                   <div class="post-hero hero-contact" style="background-color:transparent; padding-right:5px;" id="contact">
                      <br></br> 
-                     <div class="dont-break" style="height:50%">
-                        <form  action="" method="POST" > 
+                     <div class="dont-break" style="height:50%;">
+                         <div style=" width:30%; border:solid <?php echo $contactInfoBorder?> 2px; border-radius: 5px; background-color:<?php echo $contactInfoBg?>; overflow:auto;   min-width:30%; margin-top: 50px; float:right;">
+                             <?php echo $contactInfo?>
+                         </div>
+                        <form  action="" method="POST" style="width: 68%;"> 
                             
                             <?php 
                                 if($_POST['name'] && $_POST['email'] && $_POST['message']){
@@ -365,21 +368,30 @@
                             
                             
                             
-                            <label class="h3 light" for="">Your name...</label> 
-                            <input name="name" type="text" class="form-control" placeholder="Your name..." required> 
+                            <label class="h3 light" for="">Your name</label> 
+                            <input name="name" type="text" class="form-control"  placeholder="Your name..." required> 
                             
-                            <label class="h3 light" for="">Your email...</label> 
-                            <input name="email" type="email" class="form-control" placeholder="Your email..." required> 
+                            <div style="">
+                                <label class="h3 light" for="">Your email</label> 
+                                <input name="email" type="email" class="form-control" style="width:45%;"  placeholder="Your email..." required> 
+                            </div>
                             
-                            <label class="h3 light" for="">Message...</label> 
+                            <div style="margin-top:-90px;">
+                                <label class="h3 light" style="margin-left: 50%; display: inline-block;">Phone Number</label> 
+                                <input name="email" type="email" class="form-control" style="width:45%; margin-left: 50%;" placeholder="Your email..." required> 
+                            </div>
+                            
+                            <label class="h3 light" for="">Message</label> 
                             <textarea name="message" id="" cols="5" rows="2" class="form-control" placeholder="Your message..." required></textarea> 
                             
                             <button type="submit" style="float:right; margin:15px;"> Send message </button> 
                             
                         </form>
+                        
                      </div>
                      <iframe src='<?php echo $gmapUrl?>' style="height:50%; bottom:0px; width:100%;" frameborder="0" style="border:0"></iframe> 
                   </div>
+                   
                </div>
                 
                 
@@ -396,8 +408,10 @@
                <a target="_blank" href="<?php echo $youtube ?>" class="social-link no-color"><img src="youtube.png" style="width:30px; height:25px;"></a>
                <a target="_blank" href="<?php echo $linkedin ?>" class="social-link no-color"><img src="linkedin.png" style="width:30px; height:25px;"></a>
                <a target="_blank" href="index.php#contact" target="_self" class="social-link no-color"><img src="watsapp.png" style="width:25px; height:25px;"></a>
-                <a class="va-m copyright" href=""> &#169; Copyright 2015 All Rights Reserved</a> 
-                </footer>
+               <a target="_blank" href="index.php#contact" target="_self" class="social-link no-color"><img src="wechat.png" style="width:45px; margin-left: -10px; height:25px;"></a>
+               <a class="va-m copyright" href=""> &#169; Copyright 2015 All Rights Reserved</a> 
+               </footer>
+                 
                <script type="text/javascript" src="wp-content/cache/minify/000000/nZDRDoIwDEV_SBj_4LMfUUcZw67FbsuUrxdC1AejEd5u2nOS9jYmSIvKpivGimI1gr2AQzNE40jOQGa4ZtR73ZUqJ0-HZothhZMKEeoJeIZ0g44QPbt_hBXwk247row7Plr"></script>
                <script type="text/javascript" src="wp-content/cache/minify/000000/BcEBDsAQEATAF-m9SVjNNXYJGtHXd2YVY8sYYrzj54LtHlypvhnTnmmpkdAKA72ei64f.js"></script> <!-- Jquery and Bootstap core js files --> 
                <script type="text/javascript" src="plugins/jquery.min.js"></script> 

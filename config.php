@@ -1,9 +1,9 @@
 <?php
-$sliderimage1 = "http://www.welovesolo.com/wp-content/uploads/2014/12/p16psto8ibavi1poh1qfb6ffneb9-details1-250x150.jpg";
-$sliderimage2 = "images/cross.gifhttp://www.welovesolo.com/wp-content/uploads/2014/12/p16psto8ibavi1poh1qfb6ffneb9-details1-250x150.jpg";
-$sliderimage3 = "http://www.welovesolo.com/wp-content/uploads/2014/12/p16psto8ibavi1poh1qfb6ffneb9-details1-250x150.jpg";
-$sliderimage4 = "http://www.welovesolo.com/wp-content/uploads/2014/12/p16psto8ibavi1poh1qfb6ffneb9-details1-250x150.jpg";
-$sliderimage5 = "http://www.welovesolo.com/wp-content/uploads/2014/12/p16psto8ibavi1poh1qfb6ffneb9-details1-250x150.jpg";
+$sliderimage1 = "http://www.menucool.com/slider/prod/image-slider-5.jpg";
+$sliderimage2 = "images/edit.png";
+$sliderimage3 = "";
+$sliderimage4 = "";
+$sliderimage5 = "";
 $bodyBackgroundUrl = "http://www.welovesolo.com/wp-content/uploads/2014/12/p16psto8ibavi1poh1qfb6ffneb9-details1-250x150.jpg";
 $logoSrc = "logo.gif";
 $logoWidth = "300";
@@ -22,7 +22,7 @@ $AboutUsHeading = "";
 $AboutUsHeadingTextColor = "";
 $AboutUsContent = "";
 $AboutUsContentTextColor = "";
-$AboutUsBackgroundImageHeader = "images/doc.png";
+$AboutUsBackgroundImageHeader = "";
 $AboutUsBackgroundColorHeader = "";
 $AboutUsBackgroundImageContent = "";
 $AboutUsBackgroundColorContent = "";
@@ -42,7 +42,7 @@ $OurTeamContent  = "";
 $OurTeamContentTextColor  = "";
 $OurTeamBackgroundImageHeader  = "";
 $OurTeamBackgroundColorHeader = "";
-$OurTeamBackgroundImageContent  = "ksdj;faksd;fasjdf;kasd;f";
+$OurTeamBackgroundImageContent  = "images/doc.png";
 $OurTeamBackgroundColorContent  = "";
 $modalButtonName = "";
 $modalButtonHeader = "";
@@ -50,7 +50,14 @@ $modalButtonContent = "";
 $sender = "";
 $senderPass  = "";
 $receiver  = "";
-$gmapUrl   = "";
+$gmapUrl   = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15558.243604304385!2d77.568353!3d12.871613!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8aff689e666aece0!2sSeshadhriTechnologies!5e0!3m2!1sen!2sin!4v1438120925757";
+$contactInfo   = '<p style="text-align: center;"><strong>Seshadhri Technologies</strong></p>
+<p style="text-align: center;"><span style="color: #222222; font-family: arial, sans-serif; font-size: small; line-height: 16.1200008392334px;">rajahmed road, JP Nagar 9th Phase, Bengaluru, Karnataka 560062</span></p>
+<p style="text-align: center;"><span style="color: #222222; font-family: arial, sans-serif; font-size: small; line-height: 16.1200008392334px; text-align: start; white-space: nowrap;">099457 63599</span></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">Info@Seshadhritechnologies.com</p>';
+$contactInfoBorder   = '#69E6FF';
+$contactInfoBg   = '#BEFF7D';
 $facebook   = "";
 $googleplus   = "";
 $youtube   = "";

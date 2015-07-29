@@ -40,6 +40,7 @@
     
     
      function uploadMultipleImage($allImageDetails){
+         echo count($allImageDetails['name']);
         for($i = 0; $i < count($allImageDetails['name']);$i++){
             $errors= array();
             $file_name = $allImageDetails['name'][$i];
@@ -60,7 +61,7 @@
                     move_uploaded_file($file_tmp,"images/".$file_name);
                     $value = "images/".$file_name;
                     echo "Success";
-                    return $value;
+                   
             }else{
                 foreach ($errors as $value) {
                     echo $value;
@@ -146,10 +147,17 @@
         
         $write .= "\n";
         uploadMultipleImage($_FILES['galleryImage']);
-        //array_filter only on FILES as it needs to have the precedence
-        $print02 = array_filter($_FILES['galleryImage']['name']) + $_POST['image'];
-        ksort($print02);
         
+        $galleryImage = array_filter($_FILES['galleryImage']['name']) ;
+        if(isset($_FILES['galleryImage'])){
+            foreach ($galleryImage as $key => $value) {
+                $value = "../images/".$value; // why not $value[$key] = "/images/".$value;?!
+                $galleryImage[$key] = $value;
+            }
+        }
+        //$galleryImage takes precedance in array union]);
+        $print02 = $galleryImage + $_POST['image'];
+        ksort($print02);
         $serviceGallerItems[$id] = $print02;
         $serviceGallerItems = var_export($serviceGallerItems, true);
         $write .= '$serviceGallerItems   = '.$serviceGallerItems.';';
@@ -160,6 +168,11 @@
         $serviceGallerItemsDetails = var_export($serviceGallerItemsDetails, true);
         $write .= '$serviceGallerItemsDetails   = '.$serviceGallerItemsDetails.';';
         
+        $write .= "\n";
+        $write .= '$GalleryModalContent   = \''. $_POST['GalleryModalContent'].'\';';
+        
+        $write .= "\n";
+        $write .= '$GalleryModalButton   = "'. $_POST['GalleryModalButton'].'";';
         
         $file = fopen("ServiceConfig.php", "w+");
         fwrite($file, $write);
@@ -264,6 +277,15 @@
                     <tr>
                         <td><label>Display Name</label></td>
                         <td><input type="text" name="name"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Popup Button Name</label></td>
+                        <td><input type="text" name="GalleryModalButton"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Popup Content</label></td>
+                        <td colspan="2"><textarea rows="4" cols="50" name="GalleryModalContent" class="mytextarea"><?php echo $GalleryModalContent;?></textarea></td>
+                  
                     </tr>
                 </table>
             </div>

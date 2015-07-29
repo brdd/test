@@ -138,6 +138,12 @@
         $write .= "\n";
         $write .= '$gmapUrl   = "'. $_POST['gmapUrl'].'";';
         $write .= "\n";
+        $write .= '$contactInfo   = \''. $_POST['contactInfo'].'\';';
+        $write .= "\n";
+        $write .= '$contactInfoBorder   = \''. $_POST['contactInfoBorder'].'\';';
+        $write .= "\n";
+        $write .= '$contactInfoBg   = \''. $_POST['contactInfoBg'].'\';';
+        $write .= "\n";
         $write .= '$facebook   = "'. $_POST['facebook'].'";';
         $write .= "\n";
         $write .= '$googleplus   = "'. $_POST['googleplus'].'";';
@@ -145,6 +151,7 @@
         $write .= '$youtube   = "'. $_POST['youtube'].'";';
         $write .= "\n";
         $write .= '$linkedin   = "'. $_POST['linkedin'].'";';
+        
         
         $file = fopen("config.php", "w+");
         fwrite($file, $write);
@@ -236,6 +243,7 @@
         </style>
         
         <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+        <script type="text/javascript" src="jscolor/jscolor.js"></script>
     
         <script type="text/javascript">
             tinymce.init({
@@ -300,7 +308,8 @@
                     </tr>
                     <tr>
                         <td><label>Title Text Color</label></td>
-                        <td><input type="text" name="titleTextColor"  value="<?php echo $titleTextColor;?>" ></td>
+                        <td><input type="text" name="titleTextColor" class="color {adjust:false}" value="<?php echo $titleTextColor;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>Subtitle</label></td>
@@ -308,7 +317,8 @@
                     </tr>
                     <tr>
                         <td><label>Subtitle Text Color</label></td>
-                        <td><input type="text" name="subtitleTextColor" value="<?php echo $subtitleTextColor;?>" ></td>
+                        <td><input type="text" name="subtitleTextColor" class="color {adjust:false}"  value="<?php echo $subtitleTextColor;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     
                 </table>
@@ -326,19 +336,23 @@
                     </tr>
                     <tr>
                         <td><label>Menu Text Color</label></td>
-                        <td><input type="text" name="menuItemTextColor" value="<?php echo $menuItemTextColor;?>" ></td>
+                        <td><input type="text" name="menuItemTextColor" class="color {adjust:false}" value="<?php echo $menuItemTextColor;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>Menu Text Color On Hover</label></td>
-                        <td><input type="text" name="menuItemTextColorHover" value="<?php echo $menuItemTextColorHover;?>" ></td>
+                        <td><input type="text" name="menuItemTextColorHover" class="color {adjust:false}" value="<?php echo $menuItemTextColorHover;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>Menu Background Color</label></td>
-                        <td><input type="text" name="menuItemBackgroundColor" value="<?php echo $menuItemBackgroundColor;?>" ></td>
+                        <td><input type="text" name="menuItemBackgroundColor" class="color {adjust:false}" value="<?php echo $menuItemBackgroundColor;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>Menu Background Color On Hover</label></td>
-                        <td><input type="text" name="menuItemBackgroundColorHover" value="<?php echo $menuItemBackgroundColorHover;?>" ></td>
+                        <td><input type="text" name="menuItemBackgroundColorHover" class="color {adjust:false}" value="<?php echo $menuItemBackgroundColorHover;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                 </table>
             </div>
@@ -353,7 +367,8 @@
                     </tr>
                     <tr>
                         <td><label>About Us Title Text Color</label></td>
-                        <td><input type="text" name="AboutUsTitleTextColor" value="<?php echo $AboutUsTitleTextColor;?>" ></td>
+                        <td><input type="text" name="AboutUsTitleTextColor" class="color {adjust:false}" value="<?php echo $AboutUsTitleTextColor;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>About Us Heading</label></td>
@@ -361,7 +376,8 @@
                     </tr>
                     <tr>
                         <td><label>About Us Heading Text Color</label></td>
-                        <td><input type="text" name="AboutUsHeadingTextColor" value="<?php echo $AboutUsHeadingTextColor;?>" ></td>
+                        <td><input type="text" name="AboutUsHeadingTextColor" class="color {adjust:false}" value="<?php echo $AboutUsHeadingTextColor;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>About Us Content</label></td>
@@ -369,7 +385,8 @@
                     </tr>
                     <tr>
                         <td><label>About Us Content Text Color</label></td>
-                        <td><input type="text" name="AboutUsContentTextColor" value="<?php echo $AboutUsContentTextColor?>" ></td>
+                        <td><input type="text" name="AboutUsContentTextColor" class="color {adjust:false}" value="<?php echo $AboutUsContentTextColor?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>Background image For Header </label></td>
@@ -378,7 +395,8 @@
                     </tr>
                     <tr>
                         <td><label>Background Color For Header</label></td>
-                        <td><input type="text" name="AboutUsBackgroundColorHeader" value="<?php echo $AboutUsBackgroundColorHeader;?>" ></td>
+                        <td><input type="text" name="AboutUsBackgroundColorHeader" class="color {adjust:false}" value="<?php echo $AboutUsBackgroundColorHeader;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>Background Image For Content</label></td>
@@ -387,7 +405,8 @@
                     </tr>
                     <tr>
                         <td><label>Background Color For Content</label></td>
-                        <td><input type="text" name="AboutUsBackgroundColorContent" value="<?php echo $AboutUsBackgroundColorContent;?>" ></td>
+                        <td><input type="text" name="AboutUsBackgroundColorContent" class="color {adjust:false}" value="<?php echo $AboutUsBackgroundColorContent;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>Collapse 1 Heading</label></td>
@@ -444,7 +463,8 @@
                     </tr>
                     <tr>
                         <td><label>Title Text Color</label></td>
-                        <td><input type="text" name="OurTeamTitleTextColor" value="<?php echo $OurTeamTitleTextColor;?>" ></td>
+                        <td><input type="text" name="OurTeamTitleTextColor" class="color {adjust:false}" value="<?php echo $OurTeamTitleTextColor;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>Out Team Heading</label></td>
@@ -452,7 +472,8 @@
                     </tr>
                     <tr>
                         <td><label>Heading Text Color</label></td>
-                        <td><input type="text" name="OurTeamHeadingTextColor" value="<?php echo $OurTeamHeadingTextColor;?>" ></td>
+                        <td><input type="text" name="OurTeamHeadingTextColor" class="color {adjust:false}" value="<?php echo $OurTeamHeadingTextColor;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>Content</label></td>
@@ -461,7 +482,8 @@
                     </tr>
                     <tr>
                         <td><label>Content Text Color</label></td>
-                        <td><input type="text" name="OurTeamContentTextColor" value="<?php echo $OurTeamContentTextColor;?>" ></td>
+                        <td><input type="text" name="OurTeamContentTextColor" class="color {adjust:false}" value="<?php echo $OurTeamContentTextColor;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>Background Image For Header </label></td>
@@ -470,7 +492,8 @@
                     </tr>
                     <tr>
                         <td><label> Background Color For Header</label></td>
-                        <td><input type="text" name="OurTeamBackgroundColorHeader" value="<?php echo $OurTeamBackgroundColorHeader;?>" ></td>
+                        <td><input type="text" name="OurTeamBackgroundColorHeader" class="color {adjust:false}" value="<?php echo $OurTeamBackgroundColorHeader;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                     <tr>
                         <td><label>Background Image For Content</label></td>
@@ -479,7 +502,8 @@
                     </tr>
                     <tr>
                         <td><label>Background Color For Content</label></td>
-                        <td><input type="text" name="OurTeamBackgroundColorContent" value="<?php echo $OurTeamBackgroundColorContent;?>" ></td>
+                        <td><input type="text" name="OurTeamBackgroundColorContent" class="color {adjust:false}"  value="<?php echo $OurTeamBackgroundColorContent;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                                      
                     <tr>
@@ -517,6 +541,20 @@
                     <tr>
                         <td><label>Gmap Url</label></td>
                         <td><input type="text" name="gmapUrl" value="<?php echo $gmapUrl;?>" ></td>
+                    </tr>
+                    <tr>
+                        <td><label>Contact Info </label></td>
+                        <td colspan="2"><textarea rows="4" cols="50" name="contactInfo" class="mytextarea"><?php echo $contactInfo;?></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label>Contact Info Border</label></td>
+                        <td><input type="text" name="contactInfoBorder" class="color {adjust:false}"  value="<?php echo $contactInfoBorder;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
+                    </tr>
+                    <tr>
+                        <td><label>Contact Info Background</label></td>
+                        <td><input type="text" name="contactInfoBg" class="color {adjust:false}"  value="<?php echo $contactInfoBg;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                 </table>
             </div>
