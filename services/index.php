@@ -118,11 +118,11 @@
 			<h2><?php echo $serviceGallerItemsDetails [$_GET['id']]['name']?></h2>
                         
                         
-                        <a href="#openModal" class="btn btn-success" style="float:right" >Open Modal</a><br/>
+                        <a href="#openModal" class="btn btn-success" style="float:right" ><?php echo  $serviceGallerItemsDetails [$_GET['id']]['modalButton']?></a><br/>
                         <div id="openModal" class="modalDialog">
                             <div>
                                 <a href="" title="Close" class="close">X</a>
-                                <?php echo $GalleryModalContent?>
+                               <?php echo  $serviceGallerItemsDetails [$_GET['id']]['modalContent']?>
                             </div>
                         </div>
 

@@ -426,7 +426,7 @@
                     </tr>
                     <tr>
                         <td><label>Collapse 2 Content</label></td>
-                        <td colspan="2" ><textarea rows="4" cols="50" name="collapse3Content" class="mytextarea"><?php echo $collapse2Content;?></textarea></td>
+                        <td colspan="2" ><textarea rows="4" cols="50" name="collapse2Content" class="mytextarea"><?php echo $collapse2Content;?></textarea></td>
                     </tr>
                     <tr>
                         <td><label>Collapse 3 Content</label></td>

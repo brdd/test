@@ -164,7 +164,7 @@
         
         
         $write .= "\n";
-        $serviceGallerItemsDetails[$id] = ['name'=>$_POST['serviceName'], 'detail'=>$_POST['ServiceDetail']];
+        $serviceGallerItemsDetails[$id] = ['name'=>$_POST['serviceName'], 'detail'=>$_POST['ServiceDetail'], 'modalButton'=>$_POST['GalleryModalButton'], 'modalContent'=>$_POST['GalleryModalContent']];
         $serviceGallerItemsDetails = var_export($serviceGallerItemsDetails, true);
         $write .= '$serviceGallerItemsDetails   = '.$serviceGallerItemsDetails.';';
         
