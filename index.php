@@ -25,7 +25,7 @@
                <link rel="stylesheet" type="text/css" href="css/style1.css" />
                <script type="text/javascript" src="js/modernizr.custom.86080.js"></script> 
                <link rel="stylesheet" href="jquery.mCustomScrollbar.css">
-               <link rel="stylesheet" type="text/css" href="wp-content/cache/minify/000000/lYtBCoAwDMA-5Oi-1M06htWOtiL-XhkTzx5DkgibzKQ7LCdkUQoN84qFIJtBYUnIjwqHV57i247GBock4uaKrV9WnWAjV_l3dPMtXfjFdAM.css" media="all" />
+               <link rel="stylesheet" type="text/css" href="css/mainLyout.css" media="all" />
                <meta charset="UTF-8" />
                <meta http-equiv="X-UA-Compatible" content="IE=edge">
                <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
