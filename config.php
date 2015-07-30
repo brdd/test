@@ -14,13 +14,13 @@ $subtitle = "Ensure Professional Ethics At All Times";
 $subtitleTextColor = "white";
 $menuItemTextColor = "black";
 $menuItemTextColorHover = "white";
-$menuItemBackgroundColor = "black";
+$menuItemBackgroundColor = "white";
 $menuItemBackgroundColorHover = "black";
 $AboutUsTitle = "About Seshadhri Technologies";
 $AboutUsTitleTextColor = "white";
 $AboutUsHeading = "Ensuring Professional Ethics At All Times";
 $AboutUsHeadingTextColor = "white";
-$AboutUsContent = "<p>ContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentCon tentContentContentContentContentContentContentContentContentContentContentCo ntentContentContentContentContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentContentCo ntentContentContentContentContentContentContentContentContentContentContentCon entContentContentContentContentContentContentContentContentContentContentConte ntContentContentContentContentContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentContentCont entContentContentContentContentContentContentContent</p>";
+$AboutUsContent = "<p>content</p>";
 $AboutUsContentTextColor = "white";
 $AboutUsBackgroundImageHeader = "images/top.png";
 $AboutUsBackgroundColorHeader = "black";
@@ -35,10 +35,10 @@ $collapse3Content  = "<p>content</p>";
 $serviceItemHoverImage  = "http://pencilscoop.com/public/uploads/images/2013/11/SVG_icon_hover.jpg";
 $serviceItemHoverFont  = "3D Conversion";
 $OurTeamTitle  = "Meet Our Fabulous Team";
-$OurTeamTitleTextColor  = "whtie";
+$OurTeamTitleTextColor  = "#FFFFFF";
 $OurTeamHeading  = "Our Young Team";
 $OurTeamHeadingTextColor  = "white";
-$OurTeamContent  = "<p>ContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentCon tentContentContentContentContentContentContentContentContentContentContentCo ntentContentContentContentContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentContentCo ntentContentContentContentContentContentContentContentContentContentContentCon entContentContentContentContentContentContentContentContentContentContentConte ntContentContentContentContentContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentContentCont entContentContentContentContentContentContentContent</p>";
+$OurTeamContent  = "";
 $OurTeamContentTextColor  = "white";
 $OurTeamBackgroundImageHeader  = "images/top.png";
 $OurTeamBackgroundColorHeader = "black";
@@ -54,10 +54,9 @@ $gmapUrl   = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15558.2436043
 $contactInfo   = '<p style="text-align: center;"><strong>Seshadhri Technologies</strong></p>
 <p style="text-align: center;"><span style="color: #222222; font-family: arial, sans-serif; font-size: small; line-height: 16.1200008392334px;">rajahmed road, JP Nagar 9th Phase, Bengaluru, Karnataka 560062</span></p>
 <p style="text-align: center;"><span style="color: #222222; font-family: arial, sans-serif; font-size: small; line-height: 16.1200008392334px; text-align: start; white-space: nowrap;">099457 63599</span></p>
-<p style="text-align: center;">&nbsp;</p>
 <p style="text-align: center;">Info@Seshadhritechnologies.com</p>';
-$contactInfoBorder   = '#69E6FF';
-$contactInfoBg   = '#BEFF7D';
+$contactInfoBorder   = '#D6C7B8';
+$contactInfoBg   = '#B0A497';
 $facebook   = "https://www.facebook.com/";
 $googleplus   = "https://plus.google.com";
 $youtube   = "https://youtube.com";

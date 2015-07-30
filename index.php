@@ -50,6 +50,8 @@
                <link href="css/style.css" rel="stylesheet">
                <meta name="viewport" content="width=device-width, initial-scale=1">
                
+               
+               
                <!--menu item hover-->
                <style>
                    
@@ -65,42 +67,31 @@
                     li {
                             display:inline-block;
                             float: left;
-                            margin-right: 1px;
                             background-color:<?php echo $menuItemBackgroundColor?>; 
+                            color:<?php echo $menuItemTextColor?>;
                             margin-right: 10px;
+                            border-radius:3px;
+                            
+                    }
+                    
+                    li:hover{
+                            background-color:<?php echo $menuItemBackgroundColorHover?>; 
+                            color:<?php echo $menuItemTextColorHover?>;
                     }
 
                     /*Style for menu links*/
                     li a {
-                            display:block;
-                            min-width:120px;
-                            height: 50px;
+                            height: 45px;
                             text-align: center;
                             line-height: 30px;
                             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                            color: #fff;
-                            background: #2f3036;
                             text-decoration: none;
                     }
 
-                    /*Hover state for top level links*/
-                    li:hover a {
-                            background: yellow;
-                    }
+                    
 
-                    /*Style for dropdown links*/
-                    li:hover ul a {
-                            background: #f3f3f3;
-                            color: #2f3036;
-                            height: 40px;
-                            line-height: 40px;
-                    }
-
-                    /*Hover state for dropdown links*/
-                    li:hover ul a:hover {
-                            background: #19c589;
-                            color: #fff;
-                    }
+                  
+                    
 
                     /*Hide dropdown links until they are needed*/
                     li ul {
@@ -130,7 +121,7 @@
                             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                             text-decoration: none;
                             color: #fff;
-                            background: #19c589;
+                            background: <?php echo $showMenuColor ?>;
                             text-align: center;
                             padding: 10px 0;
                             display: none;
@@ -150,7 +141,7 @@
 
                     /*Responsive Styles*/
 
-                    @media screen and (max-width : 760px){
+                    @media screen and (max-width : 960px){
                             /*Make dropdown links appear inline*/
                             ul {
                                     position: static;
@@ -184,16 +175,6 @@
                             overflow:hidden; 
                         } 
                         
-                        #menuItem a:hover{ 
-                            background-color:<?php echo $menuItemBackgroundColorHover?>;
-                            color:<?php echo $menuItemTextColorHover?>; 
-                        }
-                        
-                        #menuItem a{
-                            background:<?php echo $menuItemBackgroundColor?>;
-                            color:<?php echo $menuItemTextColor?>;
-                        }
-                        
                         #serviceItem:hover{
                             Color:<?php echo $serviceItemHoverFont?>;
                             background:url(<?php echo $serviceItemHoverImage?>); 
@@ -220,15 +201,15 @@
                 
                 
                 
-                <nav class="modern-navigation force-hover secondary-bg" style=" background-color:transparent;">
+                <nav class="modern-navigation force-hover secondary-bg "  style=" background-color:transparent;">
                   <div class="page-brand h2" style="margin-top:-22px; margin-left:-100px; color:transparent"> <a class="no-color" href=""> <span style="#cc7900" id='orange'> Seshadhri </span><span style="#007600" id="green"> Technologies </span> </a></div>
                   
                   <label for="show-menu" class="show-menu" style="padding:10px; font-size: 30px; " > <span style="color:#cc7900"> Seshadhri </span><span style="color:#007600"> Technologies </span><span style="float:right;"><image src="images/menuIcon0101.png" height="40px"></span></label>
                     <input type="checkbox" id="show-menu" role="button">
                     <ul id="menu" style="float:right;">
-                        <li ><a href="#home">Home Page</a></li>
+                        <li id="menu" onclick="keepColor()"><a href="#home">Home Page</a></li>
                         <li ><a href="#abouts">About Us</a></li>
-                        <li ><a href="#abouts">Services</a></li>
+                        <li ><a href="#services">Services</a></li>
                         <li ><a href="#team">Our Team</a></li>
                         <li ><a href="#contact">Contact Us</a></li>
                     </ul>
@@ -320,7 +301,7 @@
                               <div class="row">
                                  <div class="col-md-6" style="display:inline-block; color:<?php echo $AboutUsContentTextColor?>">
                                      
-                                     ContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentCon tentContentContentContentContentContentContentContentContentContentContentCo ntentContentContentContentContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentContentCo ntentContentContentContentContentContentContentContentContentContentContentCon entContentContentContentContentContentContentContentContentContentContentConte ntContentContentContentContentContentContentContentContentContentContentContentC ontentContentContentContentContentContentContentContentContentContentContentCont entContentContentContentContentContentContentContent
+                                     <?php echo $AboutUsContent;?>
                                      
                                  </div>
                                  <div class="col-md-6" style="color:black">
@@ -499,7 +480,7 @@
                             
                             <div style="margin-top:-90px;">
                                 <label class="h3 light" style="margin-left: 50%; display: inline-block;">Phone Number</label> 
-                                <input name="email" type="email" class="form-control" style="width:45%; margin-left: 50%;" placeholder="Your email..." required> 
+                                <input name="phone number" type="email" class="form-control" style="width:45%; margin-left: 50%;" placeholder="Your phone number..." required> 
                             </div>
                             
                             <label class="h3 light" for="">Message</label> 
