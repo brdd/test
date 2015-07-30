@@ -1,5 +1,6 @@
 <?php
-    require 'config.php';
+    require('access.php');
+    require '../config.php';
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $write = "<?php";
@@ -157,7 +158,7 @@
         $write .= '$linkedin   = "'. $_POST['linkedin'].'";';
         
         
-        $file = fopen("config.php", "w+");
+        $file = fopen("../config.php", "w+");
         fwrite($file, $write);
     }
     
@@ -246,8 +247,8 @@
             }
         </style>
         
-        <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
-        <script type="text/javascript" src="jscolor/jscolor.js"></script>
+        <script type="text/javascript" src="../tinymce/tinymce.min.js"></script>
+        <script type="text/javascript" src="../jscolor/jscolor.js"></script>
     
         <script type="text/javascript">
             tinymce.init({

@@ -194,7 +194,7 @@
             
             
             
-            <body class="home blog fw-ajax-enabled adjust-brand show-navigation" style="background:url(<?php echo"$bodyBackgroundUrl"?>)" data-horizontal-scroll="true">
+            <body class="home blog fw-ajax-enabled adjust-brand show-navigation" style="background:url(<?php echo"$bodyBackgroundUrl"?>); background-color:<?php echo"$bodyBackgroundColor"?>;" data-horizontal-scroll="true">
               
                 
                 
@@ -299,10 +299,10 @@
                            <div class="col-md-12" >
                               <h2 style="color:<?php echo $AboutUsHeadingTextColor ?>"><?php echo $AboutUsHeading?></h2>
                               <div class="row">
-                                 <div class="col-md-6" style="display:inline-block; color:<?php echo $AboutUsContentTextColor?>">
-                                     
-                                     <?php echo $AboutUsContent;?>
-                                     
+                                 <div class="col-md-6" style="color:<?php echo $AboutUsContentTextColor?>">
+                                        <h5>
+                                           <?php  echo $AboutUsContent ?>
+                                        </h5>
                                  </div>
                                  <div class="col-md-6" style="color:black">
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -311,7 +311,7 @@
                                              <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> <?php echo $collapse1Heading ?> </a> </h4>
                                           </div>
                                           <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                             <div class="panel-body"> <?php echo $collapse1Content ?> </div>
+                                              <div class="panel-body"> <h5><?php echo $collapse1Content ?></h5> </div>
                                           </div>
                                        </div>
                                        <div class="panel panel-default">
@@ -319,7 +319,7 @@
                                              <h4 class="panel-title"> <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> <?php echo $collapse2Heading ?> </a> </h4>
                                           </div>
                                           <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                              <div class="panel-body"> <?php echo $collapse2Content ?> </div>
+                                              <div class="panel-body"> <h5><?php echo $collapse2Content ?></h5> </div>
                                           </div>
                                        </div>
                                        <div class="panel panel-default">
@@ -327,7 +327,7 @@
                                              <h4 class="panel-title"> <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> <?php echo $collapse3Heading ?></a> </h4>
                                           </div>
                                           <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                              <div class="panel-body"> <?php echo $collapse3Content ?> </div>
+                                              <div class="panel-body"> <h5><?php echo $collapse3Content ?></h5> </div>
                                           </div>
                                        </div>
                                     </div>
@@ -389,7 +389,7 @@
                               <div class="row">
                                  <div class="col-md-12" style="color:<?php echo $OurTeamContentTextColor?>">
                                      
-                                     <div> <?php echo $OurTeamContent?></div>
+                                     <div> <h5><?php echo $OurTeamContent?></h5></div>
                                      <br/>
                                     
                                       <!-- Trigger the modal with a button -->
