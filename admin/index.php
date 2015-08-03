@@ -2,7 +2,7 @@
     require('access.php');
     require '../config.php';
     
-    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if ($_POST['hidden'] == 'submitted'){
         $write = "<?php";
         
         $write .= "\n";
@@ -111,7 +111,7 @@
         $write .= "\n";
         $write .= '$OurTeamHeadingTextColor  = "'. $_POST['OurTeamHeadingTextColor'].'";';
         $write .= "\n";
-        $write .= '$OurTeamContent  = "'. $_POST['OurTeamContent'].'";';
+        $write .= '$OurTeamContent  = \''. $_POST['OurTeamContent'].'\';';
         $write .= "\n";
         $write .= '$OurTeamContentTextColor  = "'. $_POST['OurTeamContentTextColor'].'";';
         
@@ -160,6 +160,9 @@
         
         $file = fopen("../config.php", "w+");
         fwrite($file, $write);
+
+	header("Location: http://seshadhritechnologies.com/admin/index.php");	
+
     }
     
     
@@ -185,7 +188,7 @@
                 }
 
                 if(empty($errors)==true){
-                        move_uploaded_file($file_tmp,"images/".$file_name);
+                        move_uploaded_file($file_tmp,"../images/".$file_name);
                         $value = "images/".$file_name;
                         echo "Success";
                         return $value;
@@ -460,8 +463,9 @@
                         <td><input type="file" name="serviceimagehover"/></td>
                     </tr>
                     <tr>
-                        <td><label>Hover Text For Service</label></td>
-                        <td><input type="text" name="serviceItemHoverFont" value="<?php echo $serviceItemHoverFont;?>" ></td>
+                        <td><label>Hover Text Color</label></td>
+			<td><input type="text" name="serviceItemHoverFont" class="color {adjust:false}" value="<?php echo $serviceItemHoverFont;?>" ></td>
+                        <td style="font-size:13px;"> Add # At the beginning of number value eg:- #6B61FF or Use basic color names!</td>
                     </tr>
                 </table>
             </div>
@@ -602,8 +606,9 @@
                     </tr>
                 </table>
             </div>
-            
-            
+        	
+	    <input type="hidden" name="hidden" value="submitted">    
+	            
             <br/><br/>
             <div style="margin-left: 50%; "><button type="submit" value="Submit">Save Settings</button></div>
                

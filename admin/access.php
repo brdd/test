@@ -230,7 +230,7 @@ if (!$_SESSION['loggedIn']): ?>
     <div class="login">
         <div class="heading">
             <h2>Needs Authentication</h2>
-            <form action="#" method="POST">
+            <form action="" method="POST">
 
                 <div class="input-group input-group-lg">
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>

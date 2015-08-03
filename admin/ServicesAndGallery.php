@@ -4,7 +4,6 @@
     
     
     function uploadimage($img, $value){
-        echo "here!";
         if(isset($_FILES[$img])){
             $errors= array();
             $file_name = $_FILES[$img]['name'];
@@ -25,7 +24,6 @@
             if(empty($errors)==true){
                     move_uploaded_file($file_tmp,"images/".$file_name);
                     $value = "../images/".$file_name;
-                    echo "Success";
                     return $value;
             }else{
                 foreach ($errors as $value) {
@@ -41,7 +39,6 @@
     
     
      function uploadMultipleImage($allImageDetails){
-         echo count($allImageDetails['name']);
         for($i = 0; $i < count($allImageDetails['name']);$i++){
             $errors= array();
             $file_name = $allImageDetails['name'][$i];
@@ -61,7 +58,6 @@
             if(empty($errors)==true){
                     move_uploaded_file($file_tmp,"../images/".$file_name);
                     $value = "images/".$file_name;
-                    echo "Success";
                    
             }else{
                 foreach ($errors as $value) {
@@ -91,7 +87,6 @@
             if(empty($errors)==true){
                     move_uploaded_file($file_tmp,"images/".$file_name);
                     $value = "images/".$file_name;
-                    echo "Success";
                     return $value;
             }else{
                 foreach ($errors as $value) {
@@ -132,6 +127,10 @@
         
         $file = fopen("../ServiceConfig.php", "w+");
         fwrite($file, $write);
+	
+	
+	header("Location: http://seshadhritechnologies.com/admin/ServicesAndGallery.php");
+		
         
     }
     
@@ -172,6 +171,8 @@
         
         $file = fopen("../ServiceConfig.php", "w+");
         fwrite($file, $write);
+	
+	header("Location: http://seshadhritechnologies.com/admin/ServicesAndGallery.php");
         
     }
 ?>
